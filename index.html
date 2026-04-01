@@ -3,18 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Explorateur du Système Solaire</title>
+  <title>Solar System Explorer</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <h1 id="main-title">Explorateur du Système Solaire</h1>
-    <p class="subtitle">Donnees officielles NASA / ESA</p>
-  </header>
 
-  <nav id="planet-nav"></nav>
+  <!-- ===== COCKPIT HUD ===== -->
+  <div id="cockpit">
 
-  <main>
+    <!-- HUD Top-Left: Logo + Status -->
+    <div class="hud hud-tl" data-anim="1">
+      <div class="hud-corner tl"></div>
+      <h1 class="hud-title">SOLAR SYSTEM<br><span>EXPLORER</span></h1>
+      <div class="hud-status">
+        <span class="status-dot"></span>
+        <span class="status-text">TELEMETRIE ACTIVE</span>
+      </div>
+    </div>
+
+    <!-- HUD Top-Right: Telemetry -->
+    <div class="hud hud-tr" data-anim="2">
+      <div class="hud-corner tr"></div>
+      <div id="hud-telemetry">
+        <div class="telem-row"><span class="telem-label">DATE</span><span class="telem-value" id="telem-date">--</span></div>
+        <div class="telem-row"><span class="telem-label">UTC</span><span class="telem-value" id="telem-utc">--:--:--</span></div>
+        <div class="telem-row"><span class="telem-label">SRC</span><span class="telem-value">NASA / ESA</span></div>
+      </div>
+    </div>
+
+    <!-- HUD Bottom-Left: System Stats -->
+    <div class="hud hud-bl" data-anim="3">
+      <div class="hud-corner bl"></div>
+      <div id="hud-stats">
+        <div class="stat-item"><span class="stat-value" id="stat-planets">8</span><span class="stat-label">PLANETES</span></div>
+        <div class="stat-item"><span class="stat-value" id="stat-moons">0</span><span class="stat-label">LUNES</span></div>
+        <div class="stat-item"><span class="stat-value" id="stat-missions">0</span><span class="stat-label">MISSIONS</span></div>
+      </div>
+    </div>
+
+    <!-- HUD Bottom-Right: Burger Menu -->
+    <div class="hud hud-br" data-anim="4">
+      <button id="burger-btn" aria-label="Menu">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+      <div id="burger-menu" class="burger-closed">
+        <div class="burger-header">NAVIGATION</div>
+        <nav id="planet-nav"></nav>
+      </div>
+    </div>
+
+    <!-- Central: Solar System View -->
     <section id="solar-system-view">
       <div id="sun-container" class="celestial-body" data-body="soleil">
         <div class="body-sphere sun-sphere"></div>
@@ -23,33 +63,29 @@
       <div id="orbits-container"></div>
     </section>
 
-    <section id="detail-panel" class="hidden">
-      <button id="close-detail" aria-label="Fermer">&times;</button>
-      <div id="detail-header">
-        <div id="detail-sphere-container"></div>
-        <div id="detail-title-block">
-          <h2 id="detail-name"></h2>
-          <p id="detail-type"></p>
-        </div>
-      </div>
-      <div id="detail-tabs">
-        <button class="tab active" data-tab="overview">Vue d'ensemble</button>
-        <button class="tab" data-tab="physical">Caracteristiques</button>
-        <button class="tab" data-tab="orbit">Orbite</button>
-        <button class="tab" data-tab="exploration">Exploration</button>
-        <button class="tab" data-tab="moons">Lunes</button>
-      </div>
-      <div id="detail-content"></div>
-      <div id="detail-sources">
-        <h4>Sources</h4>
-        <ul id="source-links"></ul>
-      </div>
-    </section>
-  </main>
+    <!-- Crosshair center -->
+    <div class="hud-crosshair"></div>
+  </div>
 
-  <footer>
-    <p>Donnees issues de <a href="https://solarsystem.nasa.gov/" target="_blank" rel="noopener">NASA Solar System Exploration</a> et <a href="https://www.esa.int/Science_Exploration/Space_Science" target="_blank" rel="noopener">ESA Space Science</a></p>
-  </footer>
+  <!-- ===== DETAIL PANEL ===== -->
+  <section id="detail-panel" class="hidden">
+    <div id="terrain-bg"></div>
+    <div id="detail-overlay"></div>
+    <button id="close-detail" aria-label="Fermer">&times;</button>
+    <div id="detail-header">
+      <div id="detail-sphere-container"></div>
+      <div id="detail-title-block">
+        <h2 id="detail-name"></h2>
+        <p id="detail-type"></p>
+      </div>
+    </div>
+    <div id="detail-tabs"></div>
+    <div id="detail-content"></div>
+    <div id="detail-sources">
+      <h4>Sources</h4>
+      <ul id="source-links"></ul>
+    </div>
+  </section>
 
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
