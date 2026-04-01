@@ -644,59 +644,110 @@ body{
 
 /* ===== Responsive ===== */
 @media(max-width:768px){
-  .hud-tl{top:2rem;left:1rem;padding:.5rem .7rem}
-  .hud-tr{
-    top:auto;right:auto;
-    bottom:6.5rem;left:1rem;
-    padding:.4rem .7rem;
-    text-align:left;
+  /* Switch cockpit to column layout: info top, solar system bottom */
+  #cockpit{
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
   }
-  .hud-tr .hud-corner.tr{display:none}
+
+  /* Top info zone */
+  .hud{
+    position:relative;
+    top:auto;left:auto;right:auto;bottom:auto;
+    animation:none;opacity:1;
+  }
+
+  /* Info bar at the top */
+  .hud-tl{
+    padding:.8rem 1rem .4rem;
+    display:flex;align-items:center;gap:.8rem;
+  }
+  .hud-title{font-size:.7rem}
+  .hud-title span{font-size:.9rem;letter-spacing:.2em}
+  .hud-title br{display:none}
+  .hud-status{margin-top:0}
+
+  .hud-tr{
+    padding:.2rem 1rem .4rem;
+    text-align:left;
+    border-bottom:1px solid var(--border);
+  }
+  .hud-tr .hud-corner{display:none}
   .telem-row{justify-content:flex-start}
   .telem-value{text-align:left}
-  .hud-bl{bottom:2rem;left:1rem;padding:.4rem .7rem}
-  .hud-br{bottom:2rem;right:1rem}
-  .hud-title span{font-size:1rem}
+  #hud-telemetry{display:flex;gap:1rem;flex-wrap:wrap}
+  .telem-row{margin-bottom:0}
+
+  .hud-bl{
+    padding:.4rem 1rem;
+    border-bottom:1px solid var(--border);
+  }
+
+  .hud-br{
+    position:absolute;
+    top:.6rem;right:.8rem;
+    z-index:30;
+  }
+  #burger-menu{
+    bottom:auto;top:calc(100% + .6rem);
+    transform-origin:top right;
+  }
+  #burger-menu.burger-closed{transform:scale(.95) translateY(-4px)}
+
+  /* Hide corner decorations on mobile */
+  .hud-corner{display:none}
+
+  /* Solar system fills remaining space */
+  #solar-system-view{
+    position:relative;
+    flex:1;
+    min-height:0;
+  }
+
+  .hud-crosshair{display:none}
+
+  /* Detail panel mobile */
   #detail-header{flex-direction:column;text-align:center;padding:3rem 1rem 0}
   #detail-tabs{padding:0 1rem .3rem}
   #detail-content{padding:0 1rem 2rem}
   #detail-sources{padding:1rem 1rem 3rem}
   .back-btn{
-    position:fixed;top:2rem;left:1rem;
+    position:fixed;top:1rem;left:1rem;
     width:44px;height:44px;font-size:1.1rem;
     z-index:110;
   }
   .info-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
   #detail-panel::before,#detail-panel::after{display:none}
 }
+
 @media(max-width:480px){
-  .hud-tl{top:2.5rem;left:.8rem;padding:.4rem .6rem}
-  .hud-title{font-size:.7rem}
-  .hud-title span{font-size:.8rem;letter-spacing:.2em}
-  .hud-tr{bottom:6rem;left:.8rem;padding:.3rem .6rem}
-  .telem-row{gap:.5rem;margin-bottom:.2rem}
+  .hud-tl{padding:.6rem .8rem .3rem;gap:.6rem}
+  .hud-title{font-size:.6rem}
+  .hud-title span{font-size:.75rem;letter-spacing:.15em}
+  .hud-tr{padding:.2rem .8rem .3rem}
   .telem-label{font-size:.45rem}
-  .telem-value{font-size:.6rem;min-width:auto}
-  .hud-bl{bottom:2.5rem;left:.8rem;padding:.3rem .6rem}
-  .hud-br{bottom:2.5rem;right:.8rem}
+  .telem-value{font-size:.55rem;min-width:auto}
+  #hud-telemetry{gap:.6rem}
+  .hud-bl{padding:.3rem .8rem}
   #hud-stats{gap:.8rem}
-  .stat-value{font-size:1rem}
+  .stat-value{font-size:.9rem}
   .stat-label{font-size:.4rem}
 
-  /* Larger touch targets for iPhone */
-  #burger-btn{width:48px;height:48px}
-  .burger-line{width:18px}
+  .hud-br{top:.4rem;right:.6rem}
+  #burger-btn{width:44px;height:44px}
+  .burger-line{width:16px}
   #burger-menu{min-width:200px}
   .nav-btn{padding:.7rem 1rem;font-size:.65rem}
   .burger-header{padding:.7rem 1rem .4rem;font-size:.55rem}
 
-  /* Detail panel buttons */
-  #close-detail{width:44px;height:44px;font-size:1.2rem;top:2rem}
+  /* Detail panel */
+  #close-detail{width:44px;height:44px;font-size:1.2rem;top:1rem}
   .tab{padding:.7rem 1rem;font-size:.65rem}
-  .back-btn{width:44px;height:44px;font-size:1.1rem;padding:0;top:2rem}
-  #detail-header{padding:3.5rem 1rem 0}
-  #detail-content{padding:0 1rem 2.5rem}
-  #detail-sources{padding:1rem 1rem 3.5rem}
+  .back-btn{width:44px;height:44px;font-size:1.1rem;padding:0;top:1rem}
+  #detail-header{padding:3rem .8rem 0}
+  #detail-content{padding:0 .8rem 2.5rem}
+  #detail-sources{padding:1rem .8rem 3.5rem}
   .moon-card{padding:.9rem 1rem}
   .moon-card h4{font-size:.7rem}
 }
