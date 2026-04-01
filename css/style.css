@@ -632,27 +632,37 @@ body{
 ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:2px}
 ::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.2)}
 
+/* ===== Safe Area (notched devices) ===== */
+@supports(padding:env(safe-area-inset-top)){
+  .hud-tl{top:calc(1.5rem + env(safe-area-inset-top));left:calc(1.5rem + env(safe-area-inset-left))}
+  .hud-tr{top:calc(1.5rem + env(safe-area-inset-top));right:calc(1.5rem + env(safe-area-inset-right))}
+  .hud-bl{bottom:calc(1.5rem + env(safe-area-inset-bottom));left:calc(1.5rem + env(safe-area-inset-left))}
+  .hud-br{bottom:calc(1.5rem + env(safe-area-inset-bottom));right:calc(1.5rem + env(safe-area-inset-right))}
+  #detail-panel{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+  #close-detail{top:calc(1rem + env(safe-area-inset-top))}
+}
+
 /* ===== Responsive ===== */
 @media(max-width:768px){
-  .hud-tl{top:1rem;left:1rem;padding:.5rem .7rem}
+  .hud-tl{top:2rem;left:1rem;padding:.5rem .7rem}
   .hud-tr{
     top:auto;right:auto;
-    bottom:5.5rem;left:1rem;
+    bottom:6.5rem;left:1rem;
     padding:.4rem .7rem;
     text-align:left;
   }
   .hud-tr .hud-corner.tr{display:none}
   .telem-row{justify-content:flex-start}
   .telem-value{text-align:left}
-  .hud-bl{bottom:1rem;left:1rem;padding:.4rem .7rem}
-  .hud-br{bottom:1rem;right:1rem}
+  .hud-bl{bottom:2rem;left:1rem;padding:.4rem .7rem}
+  .hud-br{bottom:2rem;right:1rem}
   .hud-title span{font-size:1rem}
-  #detail-header{flex-direction:column;text-align:center;padding:1.5rem 1rem 0}
+  #detail-header{flex-direction:column;text-align:center;padding:3rem 1rem 0}
   #detail-tabs{padding:0 1rem .3rem}
-  #detail-content{padding:0 1rem}
-  #detail-sources{padding:1rem}
+  #detail-content{padding:0 1rem 2rem}
+  #detail-sources{padding:1rem 1rem 3rem}
   .back-btn{
-    position:fixed;top:1rem;left:1rem;
+    position:fixed;top:2rem;left:1rem;
     width:44px;height:44px;font-size:1.1rem;
     z-index:110;
   }
@@ -660,15 +670,15 @@ body{
   #detail-panel::before,#detail-panel::after{display:none}
 }
 @media(max-width:480px){
-  .hud-tl{top:.8rem;left:.8rem;padding:.4rem .6rem}
+  .hud-tl{top:2.5rem;left:.8rem;padding:.4rem .6rem}
   .hud-title{font-size:.7rem}
   .hud-title span{font-size:.8rem;letter-spacing:.2em}
-  .hud-tr{bottom:4.8rem;left:.8rem;padding:.3rem .6rem}
+  .hud-tr{bottom:6rem;left:.8rem;padding:.3rem .6rem}
   .telem-row{gap:.5rem;margin-bottom:.2rem}
   .telem-label{font-size:.45rem}
   .telem-value{font-size:.6rem;min-width:auto}
-  .hud-bl{bottom:.8rem;left:.8rem;padding:.3rem .6rem}
-  .hud-br{bottom:.8rem;right:.8rem}
+  .hud-bl{bottom:2.5rem;left:.8rem;padding:.3rem .6rem}
+  .hud-br{bottom:2.5rem;right:.8rem}
   #hud-stats{gap:.8rem}
   .stat-value{font-size:1rem}
   .stat-label{font-size:.4rem}
@@ -681,9 +691,12 @@ body{
   .burger-header{padding:.7rem 1rem .4rem;font-size:.55rem}
 
   /* Detail panel buttons */
-  #close-detail{width:44px;height:44px;font-size:1.2rem}
+  #close-detail{width:44px;height:44px;font-size:1.2rem;top:2rem}
   .tab{padding:.7rem 1rem;font-size:.65rem}
-  .back-btn{width:44px;height:44px;font-size:1.1rem;padding:0}
+  .back-btn{width:44px;height:44px;font-size:1.1rem;padding:0;top:2rem}
+  #detail-header{padding:3.5rem 1rem 0}
+  #detail-content{padding:0 1rem 2.5rem}
+  #detail-sources{padding:1rem 1rem 3.5rem}
   .moon-card{padding:.9rem 1rem}
   .moon-card h4{font-size:.7rem}
 }
