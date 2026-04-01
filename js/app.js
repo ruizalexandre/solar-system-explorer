@@ -16,10 +16,18 @@
   /* ===== Config ===== */
   const ORBIT_BASE = 70;
   const ORBIT_STEP = 38;
-  const PLANET_SIZES = {
-    mercure: 8, venus: 12, terre: 14, mars: 10,
-    jupiter: 28, saturne: 24, uranus: 18, neptune: 17
+  // Real diameters (km): Mercure 4879, Venus 12104, Terre 12742, Mars 6779,
+  // Jupiter 139820, Saturne 116460, Uranus 50724, Neptune 49528
+  // Scaled proportionally: smallest=6px, largest=40px (linear to real diameter)
+  const REAL_DIAMETERS = {
+    mercure: 4879, venus: 12104, terre: 12742, mars: 6779,
+    jupiter: 139820, saturne: 116460, uranus: 50724, neptune: 49528
   };
+  var minD = 4879, maxD = 139820, minPx = 6, maxPx = 40;
+  var PLANET_SIZES = {};
+  Object.keys(REAL_DIAMETERS).forEach(function (k) {
+    PLANET_SIZES[k] = Math.round(minPx + (REAL_DIAMETERS[k] - minD) / (maxD - minD) * (maxPx - minPx));
+  });
 
   /* ===== Animation state ===== */
   const orbitAngles = {};
@@ -284,7 +292,7 @@
   });
 
   /* ===== Detail Panel ===== */
-  function openDetail(id) {
+  function openDetail(id, initialTab) {
     var body = SOLAR_SYSTEM.find(function (b) { return b.id === id; });
     if (!body) return;
 
@@ -319,9 +327,10 @@
       exploration: "Exploration",
       moons: "Lunes"
     };
+    var activeTab = initialTab || "overview";
     tabs.forEach(function (t) {
       var btn = document.createElement("button");
-      btn.className = "tab" + (t === "overview" ? " active" : "");
+      btn.className = "tab" + (t === activeTab ? " active" : "");
       btn.dataset.tab = t;
       btn.textContent = tabLabels[t];
       btn.onclick = function () {
@@ -332,7 +341,7 @@
       tabsContainer.appendChild(btn);
     });
 
-    renderTab("overview", body);
+    renderTab(activeTab, body);
 
     // Sources
     var srcList = document.getElementById("source-links");
@@ -372,12 +381,13 @@
 
     var backBtn = document.createElement("button");
     backBtn.className = "back-btn";
-    backBtn.innerHTML = "&larr; " + parentBody.name;
+    backBtn.innerHTML = "&larr;";
+    backBtn.title = parentBody.name;
     backBtn.addEventListener("click", function () {
-      openDetail(parentBody.id);
+      openDetail(parentBody.id, "moons");
     });
     var detailHeader = document.getElementById("detail-header");
-    detailHeader.parentNode.insertBefore(backBtn, detailHeader);
+    detailHeader.insertBefore(backBtn, detailHeader.firstChild);
 
     // Build tabs for moon
     var tabsContainer = document.getElementById("detail-tabs");

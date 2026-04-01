@@ -87,7 +87,7 @@ body{
 }
 .hud-title{
   font-family:var(--font-sans);
-  font-size:.9rem;
+  font-size:1rem;
   font-weight:300;
   letter-spacing:.25em;
   text-transform:uppercase;
@@ -96,7 +96,7 @@ body{
 }
 .hud-title span{
   font-weight:700;
-  font-size:1.4rem;
+  font-size:1.6rem;
   color:var(--text);
   letter-spacing:.3em;
 }
@@ -111,7 +111,7 @@ body{
 }
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 .status-text{
-  font-family:var(--font-mono);font-size:.55rem;
+  font-family:var(--font-mono);font-size:.65rem;
   color:var(--text-muted);letter-spacing:.15em;
 }
 
@@ -126,12 +126,12 @@ body{
   margin-bottom:.3rem;
 }
 .telem-label{
-  font-family:var(--font-mono);font-size:.5rem;
+  font-family:var(--font-mono);font-size:.6rem;
   color:var(--text-dim);letter-spacing:.1em;
   align-self:center;
 }
 .telem-value{
-  font-family:var(--font-mono);font-size:.7rem;
+  font-family:var(--font-mono);font-size:.8rem;
   color:var(--text-muted);letter-spacing:.08em;
   min-width:80px;text-align:right;
 }
@@ -148,12 +148,12 @@ body{
   display:flex;flex-direction:column;align-items:center;gap:.15rem;
 }
 .stat-value{
-  font-family:var(--font-mono);font-size:1.2rem;
+  font-family:var(--font-mono);font-size:1.4rem;
   font-weight:700;color:var(--text);
   letter-spacing:.05em;
 }
 .stat-label{
-  font-family:var(--font-mono);font-size:.45rem;
+  font-family:var(--font-mono);font-size:.55rem;
   color:var(--text-dim);letter-spacing:.15em;
 }
 
@@ -218,7 +218,7 @@ body{
   pointer-events:auto;
 }
 .burger-header{
-  font-family:var(--font-mono);font-size:.5rem;
+  font-family:var(--font-mono);font-size:.6rem;
   color:var(--text-dim);letter-spacing:.15em;
   padding:.6rem .8rem .3rem;
   border-bottom:1px solid rgba(255,255,255,.06);
@@ -233,7 +233,7 @@ body{
   color:var(--text-muted);
   padding:.5rem .8rem;
   cursor:pointer;
-  font-family:var(--font-mono);font-size:.6rem;
+  font-family:var(--font-mono);font-size:.7rem;
   letter-spacing:.08em;text-transform:uppercase;
   transition:var(--transition);
   text-align:left;
@@ -459,7 +459,7 @@ body{
 
 #detail-name{
   font-family:var(--font-sans);
-  font-size:clamp(1.4rem,4vw,2.2rem);
+  font-size:clamp(1.6rem,4vw,2.4rem);
   font-weight:700;
   letter-spacing:.12em;
   text-transform:uppercase;
@@ -467,7 +467,7 @@ body{
 }
 #detail-type{
   color:var(--text-muted);margin-top:.15rem;
-  font-family:var(--font-mono);font-size:.6rem;
+  font-family:var(--font-mono);font-size:.7rem;
   letter-spacing:.1em;text-transform:uppercase;
 }
 
@@ -482,7 +482,7 @@ body{
   border:none;border-bottom:2px solid transparent;
   color:var(--text-muted);padding:.5rem .8rem;
   cursor:pointer;
-  font-family:var(--font-mono);font-size:.6rem;
+  font-family:var(--font-mono);font-size:.7rem;
   letter-spacing:.06em;text-transform:uppercase;
   transition:var(--transition);white-space:nowrap;
   border-radius:0;
@@ -497,11 +497,11 @@ body{
 }
 #detail-content h3{
   color:var(--text);margin:1.5rem 0 .8rem;
-  font-family:var(--font-mono);font-size:.7rem;
+  font-family:var(--font-mono);font-size:.8rem;
   letter-spacing:.15em;text-transform:uppercase;
   font-weight:400;
 }
-#detail-content p{margin-bottom:.8rem;color:rgba(255,255,255,.65);font-size:.9rem}
+#detail-content p{margin-bottom:.8rem;color:rgba(255,255,255,.65);font-size:1rem}
 
 .info-grid{
   display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
@@ -527,15 +527,15 @@ body{
 }
 .info-card .label{
   font-family:var(--font-mono);
-  font-size:.5rem;text-transform:uppercase;letter-spacing:.12em;
+  font-size:.6rem;text-transform:uppercase;letter-spacing:.12em;
   color:var(--text-dim);margin-bottom:.3rem;
 }
 .info-card .value{
   font-family:var(--font-mono);
-  font-size:1rem;font-weight:700;color:var(--accent-bright);
+  font-size:1.1rem;font-weight:700;color:var(--accent-bright);
 }
 .info-card .unit{
-  font-size:.55rem;color:var(--text-muted);margin-left:.2rem;font-weight:400;
+  font-size:.65rem;color:var(--text-muted);margin-left:.2rem;font-weight:400;
 }
 
 /* Moon list */
@@ -557,7 +557,7 @@ body{
 .moon-card:hover{border-color:rgba(255,255,255,.2);transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.3)}
 .moon-card:hover::before{opacity:1}
 .moon-card h4{
-  font-family:var(--font-mono);font-size:.65rem;
+  font-family:var(--font-mono);font-size:.75rem;
   color:var(--text);margin-bottom:.2rem;
   letter-spacing:.06em;text-transform:uppercase;font-weight:400;
   display:flex;align-items:center;justify-content:space-between;
@@ -566,18 +566,18 @@ body{
   font-size:.6rem;opacity:0;transition:opacity .25s,transform .25s;color:var(--text);
 }
 .moon-card:hover .moon-arrow{opacity:1;transform:translateX(3px)}
-.moon-card p{font-size:.7rem;color:var(--text-muted);line-height:1.5}
+.moon-card p{font-size:.8rem;color:var(--text-muted);line-height:1.5}
 
-/* Back button */
+/* Back button — inline before planet name */
 .back-btn{
-  display:inline-flex;align-items:center;gap:.4rem;
-  max-width:900px;margin:0 2rem .8rem;
+  display:flex;align-items:center;justify-content:center;
+  width:36px;height:36px;flex-shrink:0;
   background:rgba(0,0,0,.4);border:1px solid var(--border);
-  color:var(--text-muted);padding:.35rem .7rem;
+  color:var(--text-muted);padding:0;
   border-radius:var(--radius);cursor:pointer;
-  font-family:var(--font-mono);font-size:.55rem;
-  letter-spacing:.06em;text-transform:uppercase;
+  font-family:var(--font-mono);font-size:1rem;
   transition:var(--transition);backdrop-filter:blur(8px);
+  line-height:1;
 }
 .back-btn:hover{
   color:var(--text);border-color:rgba(255,255,255,.3);background:rgba(0,0,0,.6);
@@ -594,12 +594,12 @@ body{
 .mission-year{
   flex-shrink:0;width:45px;
   font-family:var(--font-mono);font-weight:700;
-  color:var(--text);font-size:.7rem;
+  color:var(--text);font-size:.8rem;
 }
-.mission-info h4{font-size:.8rem;margin-bottom:.1rem;font-weight:500}
-.mission-info p{font-size:.65rem;color:var(--text-muted)}
+.mission-info h4{font-size:.9rem;margin-bottom:.1rem;font-weight:500}
+.mission-info p{font-size:.75rem;color:var(--text-muted)}
 .mission-badge{
-  display:inline-block;font-size:.5rem;padding:.1rem .4rem;
+  display:inline-block;font-size:.6rem;padding:.15rem .5rem;
   border-radius:var(--radius);margin-left:.3rem;
   font-family:var(--font-mono);font-weight:700;
   letter-spacing:.04em;text-transform:uppercase;
@@ -614,14 +614,14 @@ body{
   border-top:1px solid var(--border);
 }
 #detail-sources h4{
-  font-family:var(--font-mono);font-size:.5rem;
+  font-family:var(--font-mono);font-size:.6rem;
   color:var(--text-dim);margin-bottom:.4rem;
   text-transform:uppercase;letter-spacing:.15em;
 }
 #source-links{list-style:none}
 #source-links li{margin-bottom:.2rem}
 #source-links a{
-  color:var(--text-dim);font-family:var(--font-mono);font-size:.6rem;
+  color:var(--text-dim);font-family:var(--font-mono);font-size:.7rem;
   text-decoration:none;transition:var(--transition);letter-spacing:.02em;
 }
 #source-links a:hover{color:var(--text-muted)}
@@ -635,26 +635,55 @@ body{
 /* ===== Responsive ===== */
 @media(max-width:768px){
   .hud-tl{top:1rem;left:1rem;padding:.5rem .7rem}
-  .hud-tr{top:1rem;right:1rem;padding:.5rem .7rem}
+  .hud-tr{
+    top:auto;right:auto;
+    bottom:5.5rem;left:1rem;
+    padding:.4rem .7rem;
+    text-align:left;
+  }
+  .hud-tr .hud-corner.tr{display:none}
+  .telem-row{justify-content:flex-start}
+  .telem-value{text-align:left}
   .hud-bl{bottom:1rem;left:1rem;padding:.4rem .7rem}
-  .hud-br{bottom:1rem;right:1rem;padding:.4rem .7rem}
-  .hud-bc{bottom:3.5rem}
+  .hud-br{bottom:1rem;right:1rem}
   .hud-title span{font-size:1rem}
-  .sun-sphere{width:40px;height:40px}
   #detail-header{flex-direction:column;text-align:center;padding:1.5rem 1rem 0}
   #detail-tabs{padding:0 1rem .3rem}
   #detail-content{padding:0 1rem}
   #detail-sources{padding:1rem}
-  .back-btn{margin:0 1rem .8rem}
+  .back-btn{
+    position:fixed;top:1rem;left:1rem;
+    width:44px;height:44px;font-size:1.1rem;
+    z-index:110;
+  }
   .info-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
   #detail-panel::before,#detail-panel::after{display:none}
-  .nav-btn{font-size:.5rem;padding:.25rem .5rem}
 }
 @media(max-width:480px){
-  .hud-title span{font-size:.85rem}
-  .hud-tr{display:none}
-  .sun-sphere{width:32px;height:32px}
-  .nav-btn{font-size:.45rem;padding:.2rem .4rem}
+  .hud-tl{top:.8rem;left:.8rem;padding:.4rem .6rem}
+  .hud-title{font-size:.7rem}
+  .hud-title span{font-size:.8rem;letter-spacing:.2em}
+  .hud-tr{bottom:4.8rem;left:.8rem;padding:.3rem .6rem}
+  .telem-row{gap:.5rem;margin-bottom:.2rem}
+  .telem-label{font-size:.45rem}
+  .telem-value{font-size:.6rem;min-width:auto}
+  .hud-bl{bottom:.8rem;left:.8rem;padding:.3rem .6rem}
+  .hud-br{bottom:.8rem;right:.8rem}
   #hud-stats{gap:.8rem}
   .stat-value{font-size:1rem}
+  .stat-label{font-size:.4rem}
+
+  /* Larger touch targets for iPhone */
+  #burger-btn{width:48px;height:48px}
+  .burger-line{width:18px}
+  #burger-menu{min-width:200px}
+  .nav-btn{padding:.7rem 1rem;font-size:.65rem}
+  .burger-header{padding:.7rem 1rem .4rem;font-size:.55rem}
+
+  /* Detail panel buttons */
+  #close-detail{width:44px;height:44px;font-size:1.2rem}
+  .tab{padding:.7rem 1rem;font-size:.65rem}
+  .back-btn{width:44px;height:44px;font-size:1.1rem;padding:0}
+  .moon-card{padding:.9rem 1rem}
+  .moon-card h4{font-size:.7rem}
 }
