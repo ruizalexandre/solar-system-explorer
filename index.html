@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explorateur du Système Solaire</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1 id="main-title">Explorateur du Système Solaire</h1>
+    <p class="subtitle">Donnees officielles NASA / ESA</p>
+  </header>
+
+  <nav id="planet-nav"></nav>
+
+  <main>
+    <section id="solar-system-view">
+      <div id="sun-container" class="celestial-body" data-body="soleil">
+        <div class="body-sphere sun-sphere"></div>
+        <span class="body-label">Soleil</span>
+      </div>
+      <div id="orbits-container"></div>
+    </section>
+
+    <section id="detail-panel" class="hidden">
+      <button id="close-detail" aria-label="Fermer">&times;</button>
+      <div id="detail-header">
+        <div id="detail-sphere-container"></div>
+        <div id="detail-title-block">
+          <h2 id="detail-name"></h2>
+          <p id="detail-type"></p>
+        </div>
+      </div>
+      <div id="detail-tabs">
+        <button class="tab active" data-tab="overview">Vue d'ensemble</button>
+        <button class="tab" data-tab="physical">Caracteristiques</button>
+        <button class="tab" data-tab="orbit">Orbite</button>
+        <button class="tab" data-tab="exploration">Exploration</button>
+        <button class="tab" data-tab="moons">Lunes</button>
+      </div>
+      <div id="detail-content"></div>
+      <div id="detail-sources">
+        <h4>Sources</h4>
+        <ul id="source-links"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Donnees issues de <a href="https://solarsystem.nasa.gov/" target="_blank" rel="noopener">NASA Solar System Exploration</a> et <a href="https://www.esa.int/Science_Exploration/Space_Science" target="_blank" rel="noopener">ESA Space Science</a></p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
