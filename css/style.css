@@ -426,6 +426,14 @@ body{
   color:var(--text-dim);text-transform:uppercase;letter-spacing:.15em;
 }
 
+/* Asteroid belt */
+.asteroid{
+  position:absolute;border-radius:50%;
+  background:var(--text-muted);
+  pointer-events:none;z-index:4;
+  opacity:.6;
+}
+
 /* Orbit rings */
 .orbit-ring{
   position:absolute;left:50%;top:50%;

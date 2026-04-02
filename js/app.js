@@ -14,11 +14,29 @@
   const closeBtn = document.getElementById("close-detail");
 
   /* ===== Config ===== */
-  const ORBIT_BASE = 70;
-  const ORBIT_STEP = 38;
-  // Real diameters (km): Mercure 4879, Venus 12104, Terre 12742, Mars 6779,
-  // Jupiter 139820, Saturne 116460, Uranus 50724, Neptune 49528
-  // Scaled proportionally: smallest=6px, largest=40px (linear to real diameter)
+  // Real distances from sun in AU
+  const ORBIT_DISTANCES_AU = {
+    mercure: 0.39, venus: 0.72, terre: 1.0, mars: 1.52,
+    jupiter: 5.2, saturne: 9.54, uranus: 19.2, neptune: 30.07
+  };
+  // Logarithmic scale: maps AU to pixel radius for readable layout
+  // log(0.39)=-0.41 to log(30.07)=3.4 -> mapped to minR..maxR
+  var viewWidth = document.getElementById("solar-system-view").offsetWidth;
+  var viewHeight = document.getElementById("solar-system-view").offsetHeight;
+  var ORBIT_MIN_R = 40;
+  var ORBIT_MAX_R = Math.min(viewWidth, viewHeight) / 2 - 20;
+  var logMin = Math.log(0.39);
+  var logMax = Math.log(30.07);
+  function auToRadius(au) {
+    var t = (Math.log(au) - logMin) / (logMax - logMin);
+    return ORBIT_MIN_R + t * (ORBIT_MAX_R - ORBIT_MIN_R);
+  }
+  var ORBIT_RADII = {};
+  Object.keys(ORBIT_DISTANCES_AU).forEach(function (k) {
+    ORBIT_RADII[k] = Math.round(auToRadius(ORBIT_DISTANCES_AU[k]));
+  });
+
+  // Real diameters (km) scaled proportionally: smallest=6px, largest=40px
   const REAL_DIAMETERS = {
     mercure: 4879, venus: 12104, terre: 12742, mars: 6779,
     jupiter: 139820, saturne: 116460, uranus: 50724, neptune: 49528
@@ -222,12 +240,44 @@
     });
   }
 
+  /* ===== Build Asteroid Belt ===== */
+  var asteroidData = [];
+  function buildAsteroidBelt() {
+    var innerAU = 2.1, outerAU = 3.3;
+    var innerR = auToRadius(innerAU);
+    var outerR = auToRadius(outerAU);
+    var count = 150;
+    for (var i = 0; i < count; i++) {
+      var r = innerR + Math.random() * (outerR - innerR);
+      var angle = Math.random() * Math.PI * 2;
+      var speed = 0.0001 + Math.random() * 0.0004;
+      var asteroid = document.createElement("div");
+      asteroid.className = "asteroid";
+      var astSize = 1.5 + Math.random() * 2;
+      asteroid.style.width = astSize + "px";
+      asteroid.style.height = astSize + "px";
+      solarView.appendChild(asteroid);
+      asteroidData.push({ el: asteroid, r: r, angle: angle, speed: speed });
+    }
+  }
+
+  function animateAsteroids(centerX, centerY) {
+    for (var i = 0; i < asteroidData.length; i++) {
+      var a = asteroidData[i];
+      if (!orbitPaused) a.angle += a.speed;
+      var x = centerX + Math.cos(a.angle) * a.r;
+      var y = centerY + Math.sin(a.angle) * a.r;
+      a.el.style.left = x + "px";
+      a.el.style.top = y + "px";
+    }
+  }
+
   /* ===== Build Orbits & Planets ===== */
   function buildOrbits() {
     var planets = SOLAR_SYSTEM.filter(function (b) { return b.orbitIndex > 0; });
 
     planets.forEach(function (planet) {
-      var radius = ORBIT_BASE + (planet.orbitIndex - 1) * ORBIT_STEP;
+      var radius = ORBIT_RADII[planet.id] || 100;
       var size = radius * 2;
 
       var ring = document.createElement("div");
@@ -297,7 +347,7 @@
     var planets = SOLAR_SYSTEM.filter(function (b) { return b.orbitIndex > 0; });
 
     planets.forEach(function (planet) {
-      var radius = ORBIT_BASE + (planet.orbitIndex - 1) * ORBIT_STEP;
+      var radius = ORBIT_RADII[planet.id] || 100;
       var speed = orbitSpeeds[planet.id] || 0.003;
       if (!orbitPaused) orbitAngles[planet.id] += speed;
 
@@ -313,6 +363,7 @@
       }
     });
 
+    animateAsteroids(centerX, centerY);
     animationId = requestAnimationFrame(animate);
   }
 
@@ -718,6 +769,7 @@
   initTheme();
   buildNav();
   buildOrbits();
+  buildAsteroidBelt();
   animate();
   updateStats();
   updateTelemetry();
