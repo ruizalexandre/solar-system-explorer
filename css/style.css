@@ -426,6 +426,85 @@ body{
   color:var(--text-dim);text-transform:uppercase;letter-spacing:.15em;
 }
 
+/* Milky Way — decorative, accessed via burger menu */
+#milky-way{
+  position:absolute;inset:0;z-index:2;
+  pointer-events:none;
+  overflow:hidden;
+}
+#milky-way::before{
+  content:'';position:absolute;
+  width:220%;height:40%;
+  top:28%;left:-60%;
+  transform:rotate(-25deg);
+  background:
+    /* Bright galactic core */
+    radial-gradient(ellipse 12% 70% at 52% 50%,rgba(255,240,200,.1) 0%,rgba(255,220,160,.05) 30%,transparent 60%),
+    /* Core glow */
+    radial-gradient(ellipse 25% 85% at 52% 50%,rgba(255,255,255,.08) 0%,rgba(220,225,255,.04) 25%,transparent 50%),
+    /* Main band */
+    radial-gradient(ellipse 50% 100% at 50% 50%,rgba(180,190,255,.16) 0%,rgba(150,165,255,.09) 15%,rgba(120,140,220,.045) 35%,transparent 60%),
+    /* Spiral arms */
+    radial-gradient(ellipse 40% 60% at 30% 42%,rgba(160,175,230,.08) 0%,rgba(130,150,210,.03) 30%,transparent 55%),
+    radial-gradient(ellipse 40% 60% at 70% 58%,rgba(160,175,230,.08) 0%,rgba(130,150,210,.03) 30%,transparent 55%),
+    /* Sagittarius warm patch */
+    radial-gradient(ellipse 8% 25% at 55% 48%,rgba(255,200,140,.05) 0%,transparent 70%),
+    /* Carina nebula */
+    radial-gradient(ellipse 6% 20% at 38% 52%,rgba(200,140,180,.04) 0%,transparent 60%),
+    /* Cygnus cloud */
+    radial-gradient(ellipse 7% 18% at 65% 46%,rgba(180,200,255,.05) 0%,transparent 55%),
+    /* Dark dust lanes */
+    radial-gradient(ellipse 5% 50% at 49% 47%,rgba(0,0,0,.07) 0%,transparent 70%),
+    radial-gradient(ellipse 4% 35% at 53% 54%,rgba(0,0,0,.05) 0%,transparent 65%),
+    radial-gradient(ellipse 3% 25% at 46% 44%,rgba(0,0,0,.04) 0%,transparent 60%),
+    /* Great Rift */
+    radial-gradient(ellipse 3% 60% at 50% 50%,rgba(0,0,0,.06) 0%,transparent 50%),
+    /* Outer halo */
+    radial-gradient(ellipse 70% 100% at 50% 50%,rgba(140,155,220,.06) 0%,rgba(100,120,200,.02) 40%,transparent 65%);
+}
+#milky-way::after{
+  content:'';position:absolute;
+  width:220%;height:22%;
+  top:36%;left:-60%;
+  transform:rotate(-25deg);
+  background:
+    /* Thin bright core lane */
+    radial-gradient(ellipse 30% 100% at 50% 50%,rgba(255,255,255,.06) 0%,rgba(200,210,255,.02) 35%,transparent 55%),
+    /* Star clusters */
+    radial-gradient(ellipse 3% 8% at 25% 45%,rgba(200,210,255,.05) 0%,transparent 70%),
+    radial-gradient(ellipse 2% 6% at 40% 55%,rgba(200,215,255,.04) 0%,transparent 65%),
+    radial-gradient(ellipse 3% 7% at 60% 42%,rgba(190,200,240,.045) 0%,transparent 60%),
+    radial-gradient(ellipse 2% 5% at 75% 50%,rgba(210,220,255,.04) 0%,transparent 65%),
+    radial-gradient(ellipse 4% 10% at 45% 48%,rgba(255,230,180,.03) 0%,transparent 60%);
+}
+
+/* Light theme */
+[data-theme="light"] #milky-way::before{
+  background:
+    radial-gradient(ellipse 12% 70% at 52% 50%,rgba(120,100,60,.08) 0%,rgba(100,80,40,.04) 30%,transparent 60%),
+    radial-gradient(ellipse 25% 85% at 52% 50%,rgba(60,60,120,.06) 0%,rgba(80,85,140,.03) 25%,transparent 50%),
+    radial-gradient(ellipse 50% 100% at 50% 50%,rgba(80,90,160,.14) 0%,rgba(60,75,150,.08) 15%,rgba(40,55,130,.04) 35%,transparent 60%),
+    radial-gradient(ellipse 40% 60% at 30% 42%,rgba(70,80,150,.06) 0%,rgba(50,60,130,.025) 30%,transparent 55%),
+    radial-gradient(ellipse 40% 60% at 70% 58%,rgba(70,80,150,.06) 0%,rgba(50,60,130,.025) 30%,transparent 55%),
+    radial-gradient(ellipse 8% 25% at 55% 48%,rgba(130,100,50,.04) 0%,transparent 70%),
+    radial-gradient(ellipse 6% 20% at 38% 52%,rgba(120,80,110,.03) 0%,transparent 60%),
+    radial-gradient(ellipse 7% 18% at 65% 46%,rgba(80,100,160,.04) 0%,transparent 55%),
+    radial-gradient(ellipse 5% 50% at 49% 47%,rgba(0,0,0,.04) 0%,transparent 70%),
+    radial-gradient(ellipse 4% 35% at 53% 54%,rgba(0,0,0,.025) 0%,transparent 65%),
+    radial-gradient(ellipse 3% 25% at 46% 44%,rgba(0,0,0,.02) 0%,transparent 60%),
+    radial-gradient(ellipse 3% 60% at 50% 50%,rgba(0,0,0,.03) 0%,transparent 50%),
+    radial-gradient(ellipse 70% 100% at 50% 50%,rgba(60,70,140,.05) 0%,rgba(40,50,120,.015) 40%,transparent 65%);
+}
+[data-theme="light"] #milky-way::after{
+  background:
+    radial-gradient(ellipse 30% 100% at 50% 50%,rgba(60,60,120,.04) 0%,rgba(80,90,140,.015) 35%,transparent 55%),
+    radial-gradient(ellipse 3% 8% at 25% 45%,rgba(80,90,150,.04) 0%,transparent 70%),
+    radial-gradient(ellipse 2% 6% at 40% 55%,rgba(80,90,150,.03) 0%,transparent 65%),
+    radial-gradient(ellipse 3% 7% at 60% 42%,rgba(70,80,140,.035) 0%,transparent 60%),
+    radial-gradient(ellipse 2% 5% at 75% 50%,rgba(80,90,150,.03) 0%,transparent 65%),
+    radial-gradient(ellipse 4% 10% at 45% 48%,rgba(130,110,70,.02) 0%,transparent 60%);
+}
+
 /* Asteroid belt */
 .asteroid{
   position:absolute;border-radius:50%;
@@ -768,6 +847,8 @@ body{
   #solar-system-view{padding:64px}
   #sun-container{top:85%}
   .orbit-ring{top:85%}
+  #milky-way::before{top:58%;left:-60%}
+  #milky-way::after{top:64%;left:-60%}
 
   /* Stack all info top-left */
   .hud-tl{top:1rem;left:1rem;padding:.5rem .7rem}

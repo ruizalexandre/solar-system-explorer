@@ -24,7 +24,7 @@
   var viewWidth = document.getElementById("solar-system-view").offsetWidth;
   var viewHeight = document.getElementById("solar-system-view").offsetHeight;
   var ORBIT_MIN_R = 40;
-  var ORBIT_MAX_R = Math.min(viewWidth, viewHeight) / 2 - 20;
+  var ORBIT_MAX_R = Math.max(viewWidth, viewHeight) * 0.45;
   var logMin = Math.log(0.39);
   var logMax = Math.log(30.07);
   function auToRadius(au) {
@@ -372,6 +372,8 @@
     openDetail("soleil");
   });
 
+  /* ===== Milky Way (visual only, accessed via burger menu) ===== */
+
   /* ===== Detail Panel ===== */
   function openDetail(id, initialTab) {
     var body = SOLAR_SYSTEM.find(function (b) { return b.id === id; });
@@ -400,7 +402,8 @@
     // Reset tabs
     var tabsContainer = document.getElementById("detail-tabs");
     tabsContainer.innerHTML = "";
-    var tabs = ["overview", "physical", "orbit", "exploration", "moons"];
+    var tabs = ["overview", "physical", "orbit", "exploration"];
+    if (body.moons && body.moons.length > 0) tabs.push("moons");
     var tabLabels = {
       overview: "Vue d'ensemble",
       physical: "Caracteristiques",

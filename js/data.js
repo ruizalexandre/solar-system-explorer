@@ -920,5 +920,51 @@ const SOLAR_SYSTEM = [
       { label: "NASA — Neptune", url: "https://solarsystem.nasa.gov/planets/neptune/overview/" },
       { label: "NASA — Neptune Fact Sheet", url: "https://nssdc.gsfc.nasa.gov/planetary/factsheet/neptunefact.html" }
     ]
+  },
+
+  /* ============ VOIE LACTEE ============ */
+  {
+    id: "voie-lactee",
+    name: "Voie Lactee",
+    type: "Galaxie spirale barree (type SBbc)",
+    color: "#7986cb",
+    gradient: "radial-gradient(circle at 35% 35%,#e8eaf6,#7986cb,#283593)",
+    terrain: ["#0a0a2e","#1a1a4e","#0d0d3b","#15153d","#0b0b28","#1e1e52"],
+    orbitIndex: -1,
+    overview: `La Voie Lactee est la galaxie spirale barree dans laquelle se trouve notre systeme solaire. Elle contient entre 100 et 400 milliards d'etoiles, dont le Soleil. Son diametre est estime a environ 100 000 annees-lumiere et son epaisseur a environ 1 000 annees-lumiere dans le disque. Le Soleil se trouve a environ 26 000 annees-lumiere du centre galactique, dans le bras d'Orion. La Voie Lactee est en rotation : le Soleil met environ 225 a 250 millions d'annees pour effectuer un tour complet (annee galactique). Au centre se trouve un trou noir supermassif, Sagittarius A*, d'une masse d'environ 4 millions de masses solaires. La Voie Lactee fait partie du Groupe Local, un amas de plus de 80 galaxies, et elle est en trajectoire de collision avec la galaxie d'Andromede, une fusion prevue dans environ 4,5 milliards d'annees.`,
+    physical: {
+      "Diametre": { value: "~100 000", unit: "annees-lumiere" },
+      "Epaisseur (disque)": { value: "~1 000", unit: "annees-lumiere" },
+      "Masse totale": { value: "~1,5 x 10^12", unit: "masses solaires" },
+      "Nombre d'etoiles": { value: "100 a 400", unit: "milliards" },
+      "Age": { value: "~13,6", unit: "milliards d'annees" },
+      "Type": { value: "SBbc", unit: "(spirale barree)" },
+      "Trou noir central": { value: "Sagittarius A*", unit: "~4 M☉" },
+      "Vitesse de rotation (Soleil)": { value: "~220", unit: "km/s" }
+    },
+    orbit: {
+      "Distance Soleil - centre": { value: "~26 000", unit: "annees-lumiere" },
+      "Bras spiral": { value: "Bras d'Orion", unit: "(mineur)" },
+      "Annee galactique": { value: "225-250", unit: "millions d'annees" },
+      "Groupe": { value: "Groupe Local", unit: "(80+ galaxies)" },
+      "Vitesse / CMB": { value: "~600", unit: "km/s" },
+      "Galaxie la plus proche": { value: "Naine du Grand Chien", unit: "~25 000 al" },
+      "Collision prevue": { value: "Andromede (M31)", unit: "dans ~4,5 Ga" }
+    },
+    exploration: [
+      { year: "1610", name: "Galilee", agency: "other", desc: "Premiere observation telescopique : la Voie Lactee est composee d'innombrables etoiles individuelles" },
+      { year: "1785", name: "William Herschel", agency: "other", desc: "Premiere tentative de cartographie de la forme de la galaxie par comptage d'etoiles" },
+      { year: "1920", name: "Grand Debat", agency: "other", desc: "Debat Shapley-Curtis sur la nature des nebuleuses spirales : galaxies externes ou partie de la Voie Lactee ?" },
+      { year: "1990", name: "COBE", agency: "nasa", desc: "Premiere cartographie complete du fond diffus cosmologique, confirmant la structure a grande echelle de l'univers" },
+      { year: "2001", name: "WMAP", agency: "nasa", desc: "Cartographie precise du rayonnement cosmique, affinant l'age et la composition de l'univers" },
+      { year: "2013", name: "Gaia", agency: "esa", desc: "Cartographie 3D de plus de 1,8 milliard d'etoiles de la Voie Lactee avec une precision sans precedent" },
+      { year: "2022", name: "Event Horizon Telescope", agency: "other", desc: "Premiere image du trou noir Sagittarius A* au centre de la Voie Lactee" }
+    ],
+    moons: [],
+    sources: [
+      { label: "NASA — Milky Way", url: "https://science.nasa.gov/resource/the-milky-way-galaxy/" },
+      { label: "ESA — Gaia Mission", url: "https://www.esa.int/Science_Exploration/Space_Science/Gaia" },
+      { label: "NASA — Sagittarius A*", url: "https://www.nasa.gov/mission/chandra-x-ray-observatory/nasas-chandra-identifies-an-underachieving-black-hole/" }
+    ]
   }
 ];
