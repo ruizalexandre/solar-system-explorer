@@ -201,7 +201,7 @@ body{
   bottom:1.5rem;right:1.5rem;
 }
 #burger-btn{
-  width:40px;height:40px;
+  width:32px;height:32px;
   background:var(--btn-bg);
   border:1px solid var(--border);
   border-radius:var(--radius);
@@ -522,7 +522,7 @@ body{
 }
 
 #close-detail{
-  position:fixed;top:1rem;right:1.5rem;
+  position:fixed;top:1rem;right:1rem;
   background:var(--btn-bg);border:1px solid var(--border);
   color:var(--text-muted);
   width:32px;height:32px;
@@ -674,7 +674,7 @@ body{
 /* Back button — inline before planet name */
 .back-btn{
   display:flex;align-items:center;justify-content:center;
-  width:36px;height:36px;flex-shrink:0;
+  width:32px;height:32px;flex-shrink:0;
   background:var(--btn-bg);border:1px solid var(--border);
   color:var(--text-muted);padding:0;
   border-radius:var(--radius);cursor:pointer;
@@ -766,6 +766,7 @@ body{
     top:1rem;right:1rem;
     bottom:auto;
   }
+  #burger-btn{width:44px;height:44px}
   #burger-menu{
     top:calc(100% + .6rem);
     bottom:auto;
@@ -776,6 +777,7 @@ body{
   #detail-tabs{padding:0 1rem .3rem}
   #detail-content{padding:0 1rem}
   #detail-sources{padding:1rem}
+  #close-detail{width:44px;height:44px;font-size:1.2rem}
   .back-btn{
     position:fixed;top:1rem;left:1rem;
     width:44px;height:44px;font-size:1.1rem;
@@ -799,7 +801,7 @@ body{
   .stat-label{font-size:.4rem}
 
   /* Larger touch targets for iPhone */
-  #burger-btn{width:48px;height:48px}
+  #burger-btn{width:44px;height:44px}
   .burger-line{width:18px}
   #burger-menu{min-width:200px}
   .nav-btn{padding:.7rem 1rem;font-size:.65rem}
