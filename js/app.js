@@ -256,8 +256,6 @@
 
       var col = PLANET_COLORS[planet.id];
       if (col) {
-        dot.style.borderColor = "rgba(" + col + ",.4)";
-        dot.style.boxShadow = "0 0 10px rgba(" + col + ",.15), 0 0 25px rgba(" + col + ",.06)";
         dot.style.setProperty("--planet-color", col);
       }
 
@@ -683,7 +681,41 @@
     }
   }
 
+  /* ===== Theme Toggle ===== */
+  function initTheme() {
+    var saved = localStorage.getItem("theme");
+    if (saved) {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+    updateThemeIcon();
+  }
+
+  function updateThemeIcon() {
+    var sun = document.getElementById("icon-sun");
+    var moon = document.getElementById("icon-moon");
+    if (!sun || !moon) return;
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    sun.style.display = isLight ? "none" : "block";
+    moon.style.display = isLight ? "block" : "none";
+  }
+
+  var themeBtn = document.getElementById("theme-toggle");
+  if (themeBtn) {
+    themeBtn.addEventListener("click", function () {
+      var isLight = document.documentElement.getAttribute("data-theme") === "light";
+      if (isLight) {
+        document.documentElement.removeAttribute("data-theme");
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.documentElement.setAttribute("data-theme", "light");
+        localStorage.setItem("theme", "light");
+      }
+      updateThemeIcon();
+    });
+  }
+
   /* ===== Init ===== */
+  initTheme();
   buildNav();
   buildOrbits();
   animate();
