@@ -60,57 +60,6 @@
   --planet-glow-alpha-2:.06;
 }
 
-[data-theme="light"]{
-  --bg:#f2f1ef;
-  --bg-card:rgba(0,0,0,.04);
-  --text:rgba(0,0,0,.88);
-  --text-muted:rgba(0,0,0,.45);
-  --text-dim:rgba(0,0,0,.2);
-  --accent:rgba(0,0,0,.85);
-  --accent-dim:rgba(0,0,0,.06);
-  --accent-glow:rgba(0,0,0,.1);
-  --accent-bright:#111;
-  --border:rgba(0,0,0,.12);
-  --danger:#d32f2f;
-  --success:#2e7d32;
-  --gold:#e65100;
-  --grid-line:rgba(0,0,0,.08);
-  --horizon-glow:rgba(0,0,0,.03);
-  --corner-border:rgba(0,0,0,.35);
-  --btn-bg:rgba(255,255,255,.6);
-  --btn-hover-bg:rgba(0,0,0,.06);
-  --btn-hover-border:rgba(0,0,0,.25);
-  --menu-bg:rgba(255,255,255,.9);
-  --menu-separator:rgba(0,0,0,.08);
-  --nav-hover-bg:rgba(0,0,0,.04);
-  --nav-hover-border:rgba(0,0,0,.2);
-  --nav-active-bg:rgba(0,0,0,.06);
-  --crosshair-color:rgba(0,0,0,.15);
-  --orbit-color:rgba(0,0,0,.15);
-  --planet-border:rgba(0,0,0,.55);
-  --planet-glow:rgba(0,0,0,.12);
-  --annotation-line:rgba(0,0,0,.3);
-  --detail-bg:#f2f1ef;
-  --overlay-start:rgba(242,241,239,.92);
-  --overlay-end:rgba(242,241,239,1);
-  --card-bg:rgba(255,255,255,.8);
-  --card-hover-bg:rgba(255,255,255,.9);
-  --card-corner:rgba(0,0,0,.15);
-  --detail-corner:rgba(0,0,0,.15);
-  --text-body:rgba(0,0,0,.6);
-  --scrollbar-thumb:rgba(0,0,0,.12);
-  --scrollbar-hover:rgba(0,0,0,.25);
-  --mission-hover:rgba(0,0,0,.03);
-  --sun-border:rgba(210,140,30,.6);
-  --sun-glow-1:rgba(210,140,30,.2);
-  --sun-glow-2:rgba(200,120,20,.1);
-  --sun-inset:rgba(210,140,30,.1);
-  --sun-inner:rgba(210,140,30,.3);
-  --sun-dash:rgba(210,140,30,.15);
-  --planet-border-alpha:.6;
-  --planet-glow-alpha:.25;
-  --planet-glow-alpha-2:.12;
-}
 
 html,body{height:100%;overflow:hidden}
 
@@ -341,24 +290,6 @@ body{
 }
 
 /* Theme Toggle */
-#theme-toggle{
-  width:40px;height:40px;
-  background:var(--btn-bg);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  transition:var(--transition);
-  backdrop-filter:blur(8px);
-  color:var(--text-muted);
-  margin-bottom:.4rem;
-  padding:0;
-}
-#theme-toggle:hover{
-  border-color:var(--btn-hover-border);
-  background:var(--btn-hover-bg);
-  color:var(--text);
-}
 
 /* Crosshair */
 .hud-crosshair{
@@ -478,39 +409,12 @@ body{
     radial-gradient(ellipse 4% 10% at 45% 48%,rgba(255,230,180,.03) 0%,transparent 60%);
 }
 
-/* Light theme */
-[data-theme="light"] #milky-way::before{
-  background:
-    radial-gradient(ellipse 12% 70% at 52% 50%,rgba(120,100,60,.08) 0%,rgba(100,80,40,.04) 30%,transparent 60%),
-    radial-gradient(ellipse 25% 85% at 52% 50%,rgba(60,60,120,.06) 0%,rgba(80,85,140,.03) 25%,transparent 50%),
-    radial-gradient(ellipse 50% 100% at 50% 50%,rgba(80,90,160,.14) 0%,rgba(60,75,150,.08) 15%,rgba(40,55,130,.04) 35%,transparent 60%),
-    radial-gradient(ellipse 40% 60% at 30% 42%,rgba(70,80,150,.06) 0%,rgba(50,60,130,.025) 30%,transparent 55%),
-    radial-gradient(ellipse 40% 60% at 70% 58%,rgba(70,80,150,.06) 0%,rgba(50,60,130,.025) 30%,transparent 55%),
-    radial-gradient(ellipse 8% 25% at 55% 48%,rgba(130,100,50,.04) 0%,transparent 70%),
-    radial-gradient(ellipse 6% 20% at 38% 52%,rgba(120,80,110,.03) 0%,transparent 60%),
-    radial-gradient(ellipse 7% 18% at 65% 46%,rgba(80,100,160,.04) 0%,transparent 55%),
-    radial-gradient(ellipse 5% 50% at 49% 47%,rgba(0,0,0,.04) 0%,transparent 70%),
-    radial-gradient(ellipse 4% 35% at 53% 54%,rgba(0,0,0,.025) 0%,transparent 65%),
-    radial-gradient(ellipse 3% 25% at 46% 44%,rgba(0,0,0,.02) 0%,transparent 60%),
-    radial-gradient(ellipse 3% 60% at 50% 50%,rgba(0,0,0,.03) 0%,transparent 50%),
-    radial-gradient(ellipse 70% 100% at 50% 50%,rgba(60,70,140,.05) 0%,rgba(40,50,120,.015) 40%,transparent 65%);
-}
-[data-theme="light"] #milky-way::after{
-  background:
-    radial-gradient(ellipse 30% 100% at 50% 50%,rgba(60,60,120,.04) 0%,rgba(80,90,140,.015) 35%,transparent 55%),
-    radial-gradient(ellipse 3% 8% at 25% 45%,rgba(80,90,150,.04) 0%,transparent 70%),
-    radial-gradient(ellipse 2% 6% at 40% 55%,rgba(80,90,150,.03) 0%,transparent 65%),
-    radial-gradient(ellipse 3% 7% at 60% 42%,rgba(70,80,140,.035) 0%,transparent 60%),
-    radial-gradient(ellipse 2% 5% at 75% 50%,rgba(80,90,150,.03) 0%,transparent 65%),
-    radial-gradient(ellipse 4% 10% at 45% 48%,rgba(130,110,70,.02) 0%,transparent 60%);
-}
-
 /* Asteroid belt */
 .asteroid{
   position:absolute;border-radius:50%;
-  background:var(--text-muted);
+  background:var(--text-dim);
   pointer-events:none;z-index:4;
-  opacity:.6;
+  opacity:.7;
 }
 
 /* Orbit rings */
@@ -525,7 +429,7 @@ body{
 /* Planet dots */
 .planet-dot{
   position:absolute;border-radius:50%;cursor:pointer;
-  transition:transform .3s,box-shadow .3s;z-index:10;
+  transition:transform .3s,box-shadow .3s,border-color .3s;z-index:10;
   border:1.5px solid rgba(var(--planet-color,128,128,128),var(--planet-border-alpha,.4));
   background:transparent !important;
   box-shadow:0 0 10px rgba(var(--planet-color,128,128,128),var(--planet-glow-alpha,.15)),
@@ -593,17 +497,6 @@ body{
     color-mix(in srgb,var(--overlay-end) 55%,transparent) 55%,
     color-mix(in srgb,var(--overlay-end) 85%,transparent) 72%,
     var(--overlay-end) 100%
-  );
-}
-[data-theme="light"] #detail-overlay{
-  background:linear-gradient(
-    180deg,
-    rgba(242,241,239,.75) 0%,
-    rgba(242,241,239,.6) 10%,
-    rgba(242,241,239,.8) 25%,
-    rgba(242,241,239,.92) 40%,
-    rgba(242,241,239,.98) 55%,
-    rgba(242,241,239,1) 70%
   );
 }
 
@@ -906,7 +799,7 @@ body{
   .stat-label{font-size:.4rem}
 
   /* Larger touch targets for iPhone */
-  #burger-btn,#theme-toggle{width:48px;height:48px}
+  #burger-btn{width:48px;height:48px}
   .burger-line{width:18px}
   #burger-menu{min-width:200px}
   .nav-btn{padding:.7rem 1rem;font-size:.65rem}
