@@ -236,12 +236,30 @@
       ring.style.height = size + "px";
       orbitsContainer.appendChild(ring);
 
+      var PLANET_COLORS = {
+        mercure: "160,160,170",
+        venus: "220,190,130",
+        terre: "100,160,220",
+        mars: "200,100,80",
+        jupiter: "210,170,120",
+        saturne: "210,190,140",
+        uranus: "140,200,210",
+        neptune: "90,130,210"
+      };
+
       var dot = document.createElement("div");
       dot.className = "planet-dot";
       dot.dataset.id = planet.id;
       var pSize = PLANET_SIZES[planet.id] || 12;
       dot.style.width = pSize + "px";
       dot.style.height = pSize + "px";
+
+      var col = PLANET_COLORS[planet.id];
+      if (col) {
+        dot.style.borderColor = "rgba(" + col + ",.4)";
+        dot.style.boxShadow = "0 0 10px rgba(" + col + ",.15), 0 0 25px rgba(" + col + ",.06)";
+        dot.style.setProperty("--planet-color", col);
+      }
 
       var label = document.createElement("span");
       label.className = "body-label";
