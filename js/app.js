@@ -23,8 +23,9 @@
   // log(0.39)=-0.41 to log(30.07)=3.4 -> mapped to minR..maxR
   var viewWidth = document.getElementById("solar-system-view").offsetWidth;
   var viewHeight = document.getElementById("solar-system-view").offsetHeight;
+  var isMobile = viewWidth < 768;
   var ORBIT_MIN_R = 40;
-  var ORBIT_MAX_R = Math.min(viewWidth, viewHeight) * 0.45;
+  var ORBIT_MAX_R = isMobile ? Math.max(viewWidth * 0.7, viewHeight * 0.35) : Math.min(viewWidth, viewHeight) * 0.45;
   var logMin = Math.log(0.39);
   var logMax = Math.log(30.07);
   function auToRadius(au) {

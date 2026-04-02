@@ -206,7 +206,10 @@ const SOLAR_SYSTEM = [
           { year: "1969", name: "Apollo 11", agency: "nasa", desc: "Premier alunissage humain — Neil Armstrong et Buzz Aldrin" },
           { year: "1972", name: "Apollo 17", agency: "nasa", desc: "Derniere mission habitee sur la Lune" },
           { year: "2009", name: "LRO", agency: "nasa", desc: "Lunar Reconnaissance Orbiter, cartographie haute resolution" },
-          { year: "2025", name: "Artemis III (prevue)", agency: "nasa", desc: "Retour humain sur la Lune, pole sud" }
+          { year: "2022", name: "Artemis I", agency: "nasa", desc: "Premier vol non habite du SLS et d'Orion autour de la Lune, 25 jours en mission" },
+          { year: "2026", name: "Artemis II", agency: "nasa", desc: "Premier vol habite d'Orion autour de la Lune depuis Apollo 17 (1972). Equipage : Wiseman, Glover, Koch (NASA) et Hansen (CSA). Lancement le 1er avril 2026" },
+          { year: "2027", name: "Artemis III (prevue)", agency: "nasa", desc: "Mission en orbite terrestre basse pour tester les operations integrees entre Orion et les atterrisseurs commerciaux SpaceX/Blue Origin" },
+          { year: "2028", name: "Artemis IV (prevue)", agency: "nasa", desc: "Premier alunissage habite du programme Artemis, pole sud lunaire" }
         ]
       }
     ],
