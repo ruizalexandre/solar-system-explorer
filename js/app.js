@@ -260,9 +260,23 @@
   }
 
   /* ===== Animate Orbits ===== */
+  function getOrbitCenter() {
+    var sunEl = document.getElementById("sun-container");
+    if (sunEl) {
+      var rect = sunEl.getBoundingClientRect();
+      var viewRect = solarView.getBoundingClientRect();
+      return {
+        x: rect.left + rect.width / 2 - viewRect.left,
+        y: rect.top + rect.height / 2 - viewRect.top
+      };
+    }
+    return { x: solarView.offsetWidth / 2, y: solarView.offsetHeight / 2 };
+  }
+
   function animate() {
-    var centerX = solarView.offsetWidth / 2;
-    var centerY = solarView.offsetHeight / 2;
+    var center = getOrbitCenter();
+    var centerX = center.x;
+    var centerY = center.y;
 
     var planets = SOLAR_SYSTEM.filter(function (b) { return b.orbitIndex > 0; });
 

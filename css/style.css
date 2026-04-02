@@ -634,18 +634,38 @@ body{
 
 /* ===== Responsive ===== */
 @media(max-width:768px){
+  #solar-system-view{padding:64px}
+  #sun-container{top:85%}
+  .orbit-ring{top:85%}
+
+  /* Stack all info top-left */
   .hud-tl{top:1rem;left:1rem;padding:.5rem .7rem}
   .hud-tr{
-    top:auto;right:auto;
-    bottom:5.5rem;left:1rem;
+    top:6rem;left:1rem;
+    right:auto;
     padding:.4rem .7rem;
     text-align:left;
   }
   .hud-tr .hud-corner.tr{display:none}
   .telem-row{justify-content:flex-start}
   .telem-value{text-align:left}
-  .hud-bl{bottom:1rem;left:1rem;padding:.4rem .7rem}
-  .hud-br{bottom:1rem;right:1rem}
+  .hud-bl{
+    top:10rem;left:1rem;
+    bottom:auto;
+    padding:.4rem .7rem;
+  }
+  .hud-bl .hud-corner.bl{display:none}
+
+  /* Burger menu top-right */
+  .hud-br{
+    top:1rem;right:1rem;
+    bottom:auto;
+  }
+  #burger-menu{
+    top:calc(100% + .6rem);
+    bottom:auto;
+  }
+
   .hud-title span{font-size:1rem}
   #detail-header{flex-direction:column;text-align:center;padding:1.5rem 1rem 0}
   #detail-tabs{padding:0 1rem .3rem}
@@ -663,12 +683,12 @@ body{
   .hud-tl{top:.8rem;left:.8rem;padding:.4rem .6rem}
   .hud-title{font-size:.7rem}
   .hud-title span{font-size:.8rem;letter-spacing:.2em}
-  .hud-tr{bottom:4.8rem;left:.8rem;padding:.3rem .6rem}
+  .hud-tr{top:5rem;left:.8rem;padding:.3rem .6rem}
   .telem-row{gap:.5rem;margin-bottom:.2rem}
   .telem-label{font-size:.45rem}
   .telem-value{font-size:.6rem;min-width:auto}
-  .hud-bl{bottom:.8rem;left:.8rem;padding:.3rem .6rem}
-  .hud-br{bottom:.8rem;right:.8rem}
+  .hud-bl{top:8.5rem;left:.8rem;bottom:auto;padding:.3rem .6rem}
+  .hud-br{top:.8rem;right:.8rem;bottom:auto}
   #hud-stats{gap:.8rem}
   .stat-value{font-size:1rem}
   .stat-label{font-size:.4rem}
