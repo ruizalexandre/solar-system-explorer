@@ -24,7 +24,7 @@
   var viewWidth = document.getElementById("solar-system-view").offsetWidth;
   var viewHeight = document.getElementById("solar-system-view").offsetHeight;
   var ORBIT_MIN_R = 40;
-  var ORBIT_MAX_R = Math.max(viewWidth, viewHeight) * 0.45;
+  var ORBIT_MAX_R = Math.min(viewWidth, viewHeight) * 0.45;
   var logMin = Math.log(0.39);
   var logMax = Math.log(30.07);
   function auToRadius(au) {
